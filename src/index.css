@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================================
+   DESIGN SYSTEM — Torneio Arena Hills
+   Palette: Deep Blue / Lime Green / White
+   ============================================================ */
+
+@layer base {
+  :root {
+    /* Brand */
+    --brand-blue:        223 65% 38%;   /* #2344A2 */
+    --brand-blue-dark:   223 65% 28%;   /* darker shade */
+    --brand-blue-light:  223 65% 92%;   /* very light tint */
+    --brand-lime:        88 47% 51%;    /* #7AC143 */
+    --brand-lime-dark:   88 47% 40%;
+    --brand-lime-light:  88 47% 92%;
+
+    /* Neutrals */
+    --gray-50:  0 0% 98%;
+    --gray-100: 0 0% 95%;
+    --gray-200: 0 0% 90%;
+    --gray-300: 0 0% 80%;
+    --gray-400: 0 0% 65%;
+    --gray-500: 0 0% 50%;
+    --gray-600: 0 0% 38%;
+    --gray-700: 0 0% 26%;
+    --gray-800: 0 0% 16%;
+    --gray-900: 0 0% 9%;
+
+    /* Live */
+    --live: 0 88% 52%;
+
+    /* Semantic tokens — light (white background) */
+    --background:          0 0% 100%;
+    --foreground:          var(--gray-900);
+    --card:                0 0% 100%;
+    --card-foreground:     var(--gray-900);
+    --popover:             0 0% 100%;
+    --popover-foreground:  var(--gray-900);
+
+    --primary:             var(--brand-blue);
+    --primary-foreground:  0 0% 100%;
+    --secondary:           var(--brand-lime);
+    --secondary-foreground: 0 0% 100%;
+
+    --muted:               var(--gray-100);
+    --muted-foreground:    var(--gray-600);  /* 38% lightness — WCAG AA on white */
+    --accent:              var(--brand-lime);
+    --accent-foreground:   0 0% 100%;
+
+    --destructive:         0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border:              var(--gray-200);
+    --input:               var(--gray-200);
+    --ring:                var(--brand-blue);
+    --radius:              0.5rem;
+
+    /* Success */
+    --success:             142 60% 38%;
+    --success-foreground:  0 0% 100%;
+
+    /* Sidebar */
+    --sidebar-background:         var(--brand-blue);
+    --sidebar-foreground:         0 0% 100%;
+    --sidebar-primary:            var(--brand-lime);
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent:             223 65% 32%;
+    --sidebar-accent-foreground:  0 0% 100%;
+    --sidebar-border:             223 65% 32%;
+    --sidebar-ring:               var(--brand-lime);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  /* Card */
+  .card-flat {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+  }
+
+  /* Legacy alias — keep existing code compiling */
+  .card-glass {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+  }
+
+  .card-glass-hover {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card-glass-hover:hover {
+    border-color: hsl(var(--brand-blue) / 0.3);
+    box-shadow: 0 2px 12px hsl(var(--brand-blue) / 0.08);
+  }
+
+  /* Live badge pulse */
+  .live-pulse {
+    animation: live-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes live-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+
+  /* Slide-up entrance */
+  .slide-up {
+    animation: slide-up 0.22s ease-out;
+  }
+  @keyframes slide-up {
+    from { transform: translateY(8px); opacity: 0; }
+    to   { transform: translateY(0);   opacity: 1; }
+  }
+
+  /* Fade in */
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out both;
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* Label xs */
+  .label-xs {
+    @apply text-xs font-semibold uppercase tracking-widest text-muted-foreground;
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-border;
+  }
+
+  /* Font display — just Inter bold */
+  .font-display {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
