@@ -1,73 +1,35 @@
-# Welcome to your Lovable project
+# Arena Hills · Gestão de torneio
 
-## Project info
+Plataforma para organizar torneios de duplas na Arena Hills: do cadastro das categorias até o pódio, com um painel ao vivo para exibir partidas e resultados em telão ou no celular dos atletas.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Funcionalidades
 
-## How can I edit this code?
+**Painel ao vivo (público)**
+- Partidas acontecendo agora, fase de grupos com classificação e chaveamento eliminatório
+- Atualização automática periódica conforme o placar é lançado
+- Pódio final de cada categoria
 
-There are several ways of editing your application.
+**Administração**
+- Cadastro de categorias e duplas, com adição rápida
+- Criação de grupos e **geração automática das partidas** da fase de grupos
+- Lançamento de placar e encerramento da fase de grupos
+- Geração do **chaveamento eliminatório** (quartas, semi e final) a partir da classificação
+- Login de administrador com papéis (`user_roles`) no Supabase
 
-**Use Lovable**
+## Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+React 18 · Vite · TypeScript · Tailwind CSS · shadcn/ui · React Router · TanStack Query · Supabase (Postgres, Auth, RLS)
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Como rodar
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+cp .env.example .env   # preencha com URL, ID e chave pública do seu projeto Supabase
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+O esquema do banco está em `supabase/migrations`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Desenvolvido por **Marcos Pantoja** · [29Tech](https://www.vintenove.com)
